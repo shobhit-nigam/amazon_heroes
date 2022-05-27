@@ -1,0 +1,8 @@
+captain:shield
+ironman:suit
+thor:hammer
+hulk:smash
+wanda:magic
+black widow:sheer_elegance
+hawkeye:arrow
+spiderman:web

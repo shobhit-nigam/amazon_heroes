@@ -1,0 +1,4 @@
+clear
+pwd
+ls
+wc one.txt
