@@ -1,0 +1,4 @@
+0	stdin
+1	hi.txt
+2	stderr
+3	hello.txt

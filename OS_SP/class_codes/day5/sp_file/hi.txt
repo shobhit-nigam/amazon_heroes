@@ -1,0 +1,1 @@
+opened hi.txt with fd = 1
