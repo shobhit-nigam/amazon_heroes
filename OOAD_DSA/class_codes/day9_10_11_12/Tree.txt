@@ -1,0 +1,96 @@
+
+
+public class Tree {
+	Node root;
+	class Node {    
+	    int data; 
+	        Node left, right; 
+	          
+	        Node(int value){ 
+	            this.data = value; 
+	            left = null; 
+	            right = null; 
+	        } 
+	}
+	public void add( int d) 
+	{ 
+	Node new_node = new Node(d); 
+	if (root == null) { 
+	root = new_node; 
+	} 
+	else { 
+			Node last =root;
+			Node prev =root;
+			while(last!=null)
+			{
+			prev=last;
+			if(last.data > d)
+				last=last.left;
+	    	else
+	    		last=last.right;
+	    	}
+	    	if(prev.data > d)
+	    		prev.left=new_node;
+	    	else
+	    		prev.right=new_node;
+	    }
+  } 
+	public void TreePrint()
+	{
+		preorder(root);
+	}
+	
+	void inorder(Node p)
+	{
+		if(p!=null)
+		{
+		inorder(p.right);
+		System.out.println(p.data);
+		inorder(p.left);
+		
+		}
+	}
+
+	void preorder(Node p)
+	{
+		if(p!=null)
+		{
+		System.out.println(p.data);
+		preorder(p.left);
+		preorder(p.right);
+		}
+	}
+	void postorder(Node p)
+	{
+		if(p!=null)
+		{
+		postorder(p.left);
+		postorder(p.right);
+		System.out.println(p.data);
+		}
+	}
+} 
+import java.util.Scanner;
+
+
+public class TreeDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Tree t1 = new Tree(); 
+		Scanner in=new Scanner(System.in);
+
+		while(true){
+			
+		System.out.println("enter a number and -1 to stop");
+		int val=in.nextInt();
+		if(val == -1)
+			break;
+		else
+				 t1.add(val); 
+		}	
+		t1.TreePrint(); 
+
+		}
+
+}

@@ -1,0 +1,197 @@
+public class Tree {
+	private Node root;
+	class Node {    
+	    	int data; 
+	        Node left, right; 
+	          
+	        Node(int value){ 
+	            this.data = value; 
+	            left = null; 
+	            right = null; 
+	        } 
+	}
+	
+	
+	public void add( int d) //150
+	{ 
+		Node new_node = new Node(d); 
+		if (root == null) 	
+		{ 
+				root = new_node; 
+		} 
+		else 
+			{ 
+			Node last =root;
+			Node prev =root;
+			while(last!=null)
+			{
+				prev=last;
+			if(last.data > d)
+				last=last.left;
+	    	else
+	    		last=last.right;
+	    	}
+	    	if(prev.data > d)
+	    		prev.left=new_node;
+	    	else
+	    		prev.right=new_node;
+	    }
+  } 
+	public void TreePrint(int printChoice)
+	{
+		if(printChoice == 1)
+			inorder(root);
+		else if(printChoice == 2)
+			preorder(root);
+		else if(printChoice == 3)
+			postorder(root);
+		else
+			System.out.println("wrong choice!!!");
+			
+	}
+	
+	void inorder(Node p)
+	{
+		if(p!=null)
+		{
+		inorder(p.left);
+		System.out.println(p.data);
+		inorder(p.right);
+		}
+	}
+	
+	void preorder(Node p)
+	{
+		if(p!=null)
+		{
+		System.out.println(p.data);
+		preorder(p.left);
+		preorder(p.right);
+		}
+	}
+	void postorder(Node p)
+	{
+		if(p!=null)
+		{
+		postorder(p.left);
+		postorder(p.right);
+		System.out.println(p.data);
+		}
+	}
+	
+	boolean search(int sval)
+	{
+	return true;
+	
+	}
+	
+	int countNodes()
+	{
+		return countNode(root);
+	}
+	boolean isEmpty()
+	{
+		if (root == null)
+			return true;
+		else
+			return false;
+	}
+	
+	int MaxVal()
+	{
+		Node temp_node=root;
+		int max=temp_node.data;
+		while(temp_node!=null)
+		{
+			max=temp_node.data;
+			temp_node=temp_node.right;
+		}
+	return max;
+	}
+	int MinVal()
+	{
+		Node temp_node=root;
+		int min=temp_node.data;
+		while(temp_node!=null)
+		{
+			min=temp_node.data;
+			temp_node=temp_node.left;
+		}
+	return min;
+	}
+	
+    void deleteKey(int key) 
+    { 
+    	root = deleteRec(root, key); //100
+    }
+  
+   
+    Node deleteRec(Node root, int key)//3800,125
+    {
+        /* Base Case: If the tree is empty */
+        if (root == null)
+            return root;
+        /* Otherwise, recur down the tree */
+        if (key < root.data)//40 < 40
+            root.left = deleteRec(root.left, key);//deleteRec(1750,125)
+        else if (key > root.data)//40 > 40
+            root.right = deleteRec(root.right, key);
+        else {
+            // node with only one child or no child
+            if (root.left == null)
+                return root.right;
+            else if (root.right == null)
+                return root.left;
+            // node with two children: Get the inorder
+            // successor (smallest in the right subtree)
+            root.data = minValue(root.right);
+            // Delete the inorder successor
+            root.right = deleteRec(root.right, root.data);//deleteRec(3800,125)
+        }
+        return root;
+    }
+  
+    int minValue(Node root)
+    {
+        int minv = root.data;
+        while (root.left != null) 
+        {
+            minv = root.left.data;
+            root = root.left;
+        }
+        return minv;
+    }
+	
+    
+    public int countNode(Node root){
+
+        //base case
+        if(root==null)
+            return 0;
+
+        //recursive call to left child and right child and
+        // add the result of these with 1 ( 1 for counting the root)
+        return 1 + countNode(root.left) + countNode(root.right);
+    }
+    int Height()
+    {
+    	return HeightBtree(root);
+    }
+    int HeightBtree(Node node)
+    {
+        if (node == null)
+            return -1;
+        else
+        {
+            /* compute the depth of each subtree */
+            int lDepth = HeightBtree(node.left);
+            int rDepth = HeightBtree(node.right);
+  
+            /* use the larger one */
+            if (lDepth > rDepth)
+                return (lDepth + 1);
+             else
+                return (rDepth + 1);
+        }
+    }
+} 
