@@ -1,0 +1,332 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Untitled",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAFF+qBtyKM79qY=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "Main",
+					"defaultDiagram": true,
+					"ownedViews": [
+						{
+							"_type": "UMLClassView",
+							"_id": "AAAAAAGFhrChZgnoswY=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"model": {
+								"$ref": "AAAAAAGFhrChZQnmOMA="
+							},
+							"subViews": [
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "AAAAAAGFhrChZgnpMfM=",
+									"_parent": {
+										"$ref": "AAAAAAGFhrChZgnoswY="
+									},
+									"model": {
+										"$ref": "AAAAAAGFhrChZQnmOMA="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGFhrChZgnqNO8=",
+											"_parent": {
+												"$ref": "AAAAAAGFhrChZgnpMfM="
+											},
+											"visible": false,
+											"font": "Arial;20;0",
+											"height": 20
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGFhrChZgnrPVk=",
+											"_parent": {
+												"$ref": "AAAAAAGFhrChZgnpMfM="
+											},
+											"font": "Arial;20;1",
+											"left": 5,
+											"top": 7,
+											"width": 311,
+											"height": 20,
+											"text": "Bus"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGFhrChZgnsLm0=",
+											"_parent": {
+												"$ref": "AAAAAAGFhrChZgnpMfM="
+											},
+											"visible": false,
+											"font": "Arial;20;0",
+											"width": 113.349609375,
+											"height": 20,
+											"text": "(from Model)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGFhrChZgntAYA=",
+											"_parent": {
+												"$ref": "AAAAAAGFhrChZgnpMfM="
+											},
+											"visible": false,
+											"font": "Arial;20;0",
+											"height": 20,
+											"horizontalAlignment": 1
+										}
+									],
+									"font": "Arial;20;0",
+									"width": 321,
+									"height": 32,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAGFhrChZgnqNO8="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAGFhrChZgnrPVk="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAGFhrChZgnsLm0="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAGFhrChZgntAYA="
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "AAAAAAGFhrChZgnuYvY=",
+									"_parent": {
+										"$ref": "AAAAAAGFhrChZgnoswY="
+									},
+									"model": {
+										"$ref": "AAAAAAGFhrChZQnmOMA="
+									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGFhrLrpgoUNVY=",
+											"_parent": {
+												"$ref": "AAAAAAGFhrChZgnuYvY="
+											},
+											"model": {
+												"$ref": "AAAAAAGFhrLrmgoRCdk="
+											},
+											"font": "Arial;20;0",
+											"left": 5,
+											"top": 37,
+											"width": 311,
+											"height": 20,
+											"text": "-busID",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGFhrOdAgochoI=",
+											"_parent": {
+												"$ref": "AAAAAAGFhrChZgnuYvY="
+											},
+											"model": {
+												"$ref": "AAAAAAGFhrOc+woZ3X4="
+											},
+											"font": "Arial;20;0",
+											"left": 5,
+											"top": 59,
+											"width": 311,
+											"height": 20,
+											"text": "-routeID",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGFhrR68AomuQw=",
+											"_parent": {
+												"$ref": "AAAAAAGFhrChZgnuYvY="
+											},
+											"model": {
+												"$ref": "AAAAAAGFhrR66gojJO4="
+											},
+											"font": "Arial;20;0",
+											"left": 5,
+											"top": 81,
+											"width": 311,
+											"height": 20,
+											"text": "-busType",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGFhrUCiAouUUk=",
+											"_parent": {
+												"$ref": "AAAAAAGFhrChZgnuYvY="
+											},
+											"model": {
+												"$ref": "AAAAAAGFhrUCfworUow="
+											},
+											"font": "Arial;20;0",
+											"left": 5,
+											"top": 103,
+											"width": 311,
+											"height": 20,
+											"text": "-vehicleNo",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGFhrct9wo2hFo=",
+											"_parent": {
+												"$ref": "AAAAAAGFhrChZgnuYvY="
+											},
+											"model": {
+												"$ref": "AAAAAAGFhrct7wozFSk="
+											},
+											"font": "Arial;20;0",
+											"left": 5,
+											"top": 125,
+											"width": 311,
+											"height": 20,
+											"text": "-seatsAvailability",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;20;0",
+									"top": 32,
+									"width": 321,
+									"height": 118
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "AAAAAAGFhrChZgnvMSo=",
+									"_parent": {
+										"$ref": "AAAAAAGFhrChZgnoswY="
+									},
+									"model": {
+										"$ref": "AAAAAAGFhrChZQnmOMA="
+									},
+									"font": "Arial;20;0",
+									"top": 150,
+									"width": 321,
+									"height": 10
+								},
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAGFhrChZwnwcNo=",
+									"_parent": {
+										"$ref": "AAAAAAGFhrChZgnoswY="
+									},
+									"model": {
+										"$ref": "AAAAAAGFhrChZQnmOMA="
+									},
+									"visible": false,
+									"font": "Arial;20;0",
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAGFhrChZwnxzIU=",
+									"_parent": {
+										"$ref": "AAAAAAGFhrChZgnoswY="
+									},
+									"model": {
+										"$ref": "AAAAAAGFhrChZQnmOMA="
+									},
+									"visible": false,
+									"font": "Arial;20;0",
+									"width": 10,
+									"height": 10
+								}
+							],
+							"font": "Arial;20;0",
+							"containerChangeable": true,
+							"width": 321,
+							"height": 289,
+							"nameCompartment": {
+								"$ref": "AAAAAAGFhrChZgnpMfM="
+							},
+							"attributeCompartment": {
+								"$ref": "AAAAAAGFhrChZgnuYvY="
+							},
+							"operationCompartment": {
+								"$ref": "AAAAAAGFhrChZgnvMSo="
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAGFhrChZwnwcNo="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAGFhrChZwnxzIU="
+							}
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "AAAAAAGFhrChZQnmOMA=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "Bus",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGFhrLrmgoRCdk=",
+							"_parent": {
+								"$ref": "AAAAAAGFhrChZQnmOMA="
+							},
+							"name": "busID",
+							"visibility": "private"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGFhrOc+woZ3X4=",
+							"_parent": {
+								"$ref": "AAAAAAGFhrChZQnmOMA="
+							},
+							"name": "routeID",
+							"visibility": "private"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGFhrR66gojJO4=",
+							"_parent": {
+								"$ref": "AAAAAAGFhrChZQnmOMA="
+							},
+							"name": "busType",
+							"documentation": "total number of  seats",
+							"visibility": "private",
+							"type": ""
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGFhrUCfworUow=",
+							"_parent": {
+								"$ref": "AAAAAAGFhrChZQnmOMA="
+							},
+							"name": "vehicleNo",
+							"visibility": "private"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGFhrct7wozFSk=",
+							"_parent": {
+								"$ref": "AAAAAAGFhrChZQnmOMA="
+							},
+							"name": "seatsAvailability",
+							"visibility": "private"
+						}
+					]
+				}
+			]
+		}
+	]
+}
