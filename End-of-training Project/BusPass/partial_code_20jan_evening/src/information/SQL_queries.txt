@@ -1,0 +1,27 @@
+TABLES
+
+create table bus (busid int NOT NULL PRIMARY KEY, routeid int, 
+availability int, bustype int,
+timing int, vehicleno varchar(20));
+                  
+create table stop(stopid int NOT NULL PRIMARY KEY, stopname varchar(20));
+
+create table route(id INT NOT NULL PRIMARY KEY auto_increment, routeid int, stopid int, stoprank int);
+
+create table user(userid int NOT NULL PRIMARY KEY, fname varchar(50), lname varchar(50),
+email varchar(50), contactno varchar(12), emergencycontactno varchar(12),
+emergencycontactname varchar(50), bloodgroup varchar(12), password varchar(50));
+                  
+create table feedback(feedbackid int NOT NULL PRIMARY KEY, comment varchar(500),
+userid int, FOREIGN KEY(userid) REFERENCES user(userid));
+
+create table buspass(buspassid int NOT NULL PRIMARY KEY,userid int,
+busid int, routeid int, timing int,
+FOREIGN KEY(userid) REFERENCES user(userid));
+
+create table routerequest(routerequestid int NOT NULL PRIMARY KEY, startstop int, endstop int,
+                           startstopname VARCHAR(20), endstopname VARCHAR(20),
+                            requesterid int, routeexists boolean, stopsexist boolean,
+                            timing int);
+
+create table idgenerator(objectname varchar(40), latestid int);
