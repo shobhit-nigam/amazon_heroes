@@ -1,0 +1,125 @@
+#tables
+
+create table bus (busid int NOT NULL PRIMARY KEY, routeid int, 
+availability int, bustype int,
+timing int, vehicleno varchar(20));
+                  
+create table stop(stopid int NOT NULL PRIMARY KEY, stopname varchar(20));
+
+create table route(id INT NOT NULL PRIMARY KEY auto_increment, routeid int, stopid int, stoprank int);
+
+create table user(userid int NOT NULL PRIMARY KEY, fname varchar(50), lname varchar(50),
+email varchar(50), contactno varchar(12), emergencycontactno varchar(12),
+emergencycontactname varchar(50), bloodgroup varchar(12), password varchar(50));
+                  
+create table feedback(feedbackid int NOT NULL PRIMARY KEY, comment varchar(500),
+userid int, FOREIGN KEY(userid) REFERENCES user(userid));
+
+create table buspass(buspassid int NOT NULL PRIMARY KEY,userid int,
+busid int, routeid int, timing int,
+FOREIGN KEY(userid) REFERENCES user(userid));
+
+create table routerequest(routerequestid int NOT NULL PRIMARY KEY, startstop int, endstop int,
+                           startstopname VARCHAR(20), endstopname VARCHAR(20),
+                            requesterid int, routeexists boolean, stopsexist boolean,
+                            timing int);
+
+create table idgenerator(objectname varchar(40), latestid int);
+
+#views
+create view routestopname as
+select routeid, stopname, stoprank from route 
+inner join stop using(stopid) order by routeid, stoprank;
+
+create view availableroutebusmap as
+select busid, routeid, stopname, timing from bus inner join
+routestopname using(routeid) 
+where availability <= bustype and availability is not null
+and bustype is not null order by busid,routeid,stoprank;
+
+
+
+#datainserts
+insert into stop (stopid, stopname) values(1,'INDRANAGAR');
+insert into stop (stopid, stopname) values(2,'NEW THIPPASANDRA');
+insert into stop (stopid, stopname) values(3,'KAGGADASPURA');
+insert into stop (stopid, stopname) values(4,'MAHADEVAPURA');
+insert into stop (stopid, stopname) values(5,'DODDANEKUNDI');
+insert into stop (stopid, stopname) values(6,'KORAMANGALA');
+insert into stop (stopid, stopname) values(7,'HSR LAYOUT');
+insert into stop (stopid, stopname) values(8,'MARATHAHALLI');
+insert into stop (stopid, stopname) values(9,'WHITEFIELD');
+insert into stop (stopid, stopname) values(10,'HOSKOTE');
+insert into stop (stopid, stopname) values(11,'ELECTRONIC CITY');
+insert into stop (stopid, stopname) values(12,'JAYANAGAR');
+insert into stop (stopid, stopname) values(13,'J. P. Nagar');
+insert into stop (stopid, stopname) values(14,'BTM LAYOUT');
+insert into stop (stopid, stopname) values(15,'BANASHANKARI');
+insert into stop (stopid, stopname) values(16,'KRISHNARAJAPURA');
+insert into stop (stopid, stopname) values(18,'SARJAPUR');
+
+insert into user (userid,fname,lname,email,contactno,emergencycontactno,emergencycontactname, bloodgroup, password)
+values(123412341,'Vinod','A.B','bvino@amazon.com','9876787896','9008898678','Abhishek','APOSITIVE','vino1234');
+insert into user (userid,fname,lname,email,contactno,emergencycontactno,emergencycontactname, bloodgroup, password)
+values(123451234,'Bikash','Bhagat','bhagatb@gmail.com','919008795029','9668168910','MD.Shahbaz Khan','BPOSITIVE','biku1234');
+
+insert into routerequest (routerequestid,startstop,endstop,startstopname,endstopname,requesterid, routeexists, stopsexist,timing)
+values (8,0,0,'NAKUNDI','DEVENAHALLI', 123451234, 0, 0, 1240);
+insert into routerequest (routerequestid,startstop,endstop,startstopname,endstopname,requesterid, routeexists, stopsexist,timing)
+values (9,14,18,null,null, 123451234, 0, 1, 300);
+
+
+insert into route (routeid,stopid,stoprank) values (7,18,1);
+insert into route (routeid,stopid,stoprank) values (7,16,2);
+insert into route (routeid,stopid,stoprank) values (7,15,3);
+insert into route (routeid,stopid,stoprank) values (7,14,4);
+
+insert into route (routeid,stopid,stoprank) values (8,9,1);
+insert into route (routeid,stopid,stoprank) values (8,10,2);
+insert into route (routeid,stopid,stoprank) values (8,12,3);
+insert into route (routeid,stopid,stoprank) values (8,7,4);
+
+insert into route (routeid,stopid,stoprank) values (9,10,1);
+insert into route (routeid,stopid,stoprank) values (9,6,2);
+insert into route (routeid,stopid,stoprank) values (9,14,3);
+insert into route (routeid,stopid,stoprank) values (9,9,4);
+
+insert into route (routeid,stopid,stoprank) values (10,7,1);
+insert into route (routeid,stopid,stoprank) values (10,12,2);
+insert into route (routeid,stopid,stoprank) values (10,10,3);
+insert into route (routeid,stopid,stoprank) values (10,9,4);
+insert into route (routeid,stopid,stoprank) values (10,4,5);
+
+insert into feedback (feedbackid,comment,userid) values (3,'Love Using The App!', 123451234);
+insert into feedback (feedbackid,comment,userid) values (4,'When can I receive a response on my route request??', 123451234);
+insert into feedback (feedbackid,comment,userid) values (5,'Best App Ever...', 123451234);
+
+insert into buspass (buspassid,userid,busid,routeid,timing) values (7,123412341,20,9,750);
+
+insert into bus (busid,routeid,availability,bustype,timing,vehicleno) 
+values (20,9,16,20,750,'KA-14H-2017');
+insert into bus (busid,routeid,availability,bustype,timing,vehicleno) 
+values (22,8,14,16,1320,'OR-14H-5555');
+insert into bus (busid,routeid,availability,bustype,timing,vehicleno) 
+values (23,8,16,16,420,'KA-10C-1111');
+insert into bus (busid,routeid,availability,bustype,timing,vehicleno) 
+values (24,7,40,40,1200,'MH-12H-2200');
+insert into bus (busid,routeid,availability,bustype,timing,vehicleno) 
+values (25,10,12,16,180,'OR-12C-9896');
+insert into bus (busid,routeid,availability,bustype,timing,vehicleno) 
+values (27,0,30,30,-1,'KA-12C-3434');
+
+select * from idgenerator;
+
+insert into idgenerator (objectname,latestid) 
+values ('route',10);
+insert into idgenerator (objectname,latestid) 
+values ('bus',27);
+insert into idgenerator (objectname,latestid) 
+values ('routerequest',9);
+insert into idgenerator (objectname,latestid) 
+values ('stop',18);
+insert into idgenerator (objectname,latestid) 
+values ('buspass',7);
+insert into idgenerator (objectname,latestid) 
+values ('feedback',5);
